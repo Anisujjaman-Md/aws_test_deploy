@@ -43,8 +43,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
+
+    #application
     'test_app',
+    'chat',
+
+
+    #library
     'rest_framework',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -77,7 +84,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'aws_test_deploy.wsgi.application'
-
+ASGI_APPLICATION = 'aws_test_deploy.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
