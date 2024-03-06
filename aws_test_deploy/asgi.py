@@ -5,7 +5,7 @@ from channels.auth import AuthMiddlewareStack
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aws_test_deploy.settings')
 
-from notifaction_test.routing import websocket_urlpatterns  # Update with your actual app name
+from notifaction_test.routing import websocket_urlpatterns
 
 application = ProtocolTypeRouter(
     {

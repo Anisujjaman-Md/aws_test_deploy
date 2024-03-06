@@ -1,5 +1,6 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
+from .models import Notification
 
 class NotificationConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -9,11 +10,11 @@ class NotificationConsumer(AsyncWebsocketConsumer):
         pass
 
     async def receive(self, text_data):
-        text_data_json = json.loads(text_data)
-        message = text_data_json['message']
-        
-        
-        
+        data = json.loads(text_data)
+        message_text = data['This is a Sample message']
+
+        Notification.objects.create(message=message_text)
+
         await self.send(text_data=json.dumps({
-            'message': f"Notification received: {message}"
+            'message': message_text,
         }))

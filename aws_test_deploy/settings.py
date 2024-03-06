@@ -46,13 +46,27 @@ INSTALLED_APPS = [
 
     #application
     'test_app',
-    'websocket_test',
     'notifaction_test',
+    'user',
 
     #library
     'rest_framework',
     'channels',
+    'rest_framework_simplejwt',
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'USER_ID_FIELD': 'email',
+    'USER_ID_CLAIM': 'email',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -63,6 +77,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'aws_test_deploy.urls'
