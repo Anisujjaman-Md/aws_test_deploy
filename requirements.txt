@@ -7,6 +7,8 @@ billiard==4.2.0
 bs4==0.0.2
 celery==5.3.6
 certifi==2024.2.2
+channels==4.0.0
+channels-redis==4.2.0
 charset-normalizer==3.3.2
 cheap-repr==0.5.1
 click==8.1.7
@@ -22,6 +24,7 @@ gunicorn==21.2.0
 humanize==4.9.0
 idna==3.6
 kombu==5.3.5
+msgpack==1.0.8
 packaging==23.2
 prometheus_client==0.20.0
 prompt-toolkit==3.0.43

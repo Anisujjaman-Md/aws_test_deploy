@@ -46,8 +46,8 @@ INSTALLED_APPS = [
 
     #application
     'test_app',
-    'chat',
-
+    'websocket_test',
+    'notifaction_test',
 
     #library
     'rest_framework',
