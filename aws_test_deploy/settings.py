@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',
 
     #application
     'test_app',
@@ -53,6 +52,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'channels',
     'rest_framework_simplejwt',
+    'whitenoise.runserver_nostatic',
 ]
 
 
@@ -76,8 +76,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
@@ -99,9 +99,18 @@ TEMPLATES = [
         },
     },
 ]
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [os.environ.get('REDIS_URL', 'redis://redis:6379')],
+        },
+    },
+}
+
 
 WSGI_APPLICATION = 'aws_test_deploy.wsgi.application'
-ASGI_APPLICATION = 'aws_test_deploy.routing.application'
+ASGI_APPLICATION = 'aws_test_deploy.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

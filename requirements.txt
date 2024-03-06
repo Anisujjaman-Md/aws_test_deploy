@@ -7,8 +7,8 @@ billiard==4.2.0
 bs4==0.0.2
 celery==5.3.6
 certifi==2024.2.2
-channels==4.0.0
-channels-redis==4.2.0
+channels==3.0.4
+channels-redis==3.3.0
 charset-normalizer==3.3.2
 cheap-repr==0.5.1
 click==8.1.7
