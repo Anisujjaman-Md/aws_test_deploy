@@ -80,6 +80,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'aws_test_deploy.middleware.RequestLoggerMiddleware',
 ]
 
 ROOT_URLCONF = 'aws_test_deploy.urls'
